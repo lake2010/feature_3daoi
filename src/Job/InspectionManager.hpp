@@ -23,7 +23,7 @@ namespace Job
     {
     public:
 
-        //>>>-------------------------------------------------------------------
+        //>>>-----------------------------------------------------------------------
         //constructor & destructor
 
         /**
@@ -40,7 +40,7 @@ namespace Job
         */
         virtual ~InspectionManager();
 
-        //>>>-------------------------------------------------------------------
+        //>>>-----------------------------------------------------------------------
         // set & get function
 
         InspectionData& inspectionData(){return this->m_inspectionData;}
@@ -49,7 +49,7 @@ namespace Job
 
         QString& inspectionSettingPath(){return this->m_inspectionSettingPath;}
 
-        //>>>-------------------------------------------------------------------
+        //>>>-----------------------------------------------------------------------
         // member function
 
         /**
@@ -69,12 +69,84 @@ namespace Job
         void loadInspectionSetting(QString &path);
 
         /**
-        *  @brief  loadInspectionData
-        *            加载检测程式的数据
-        *  @param  jobPath: 存放检测程式文件的路径
+        *  @brief  loadLibraryData
+        *            加载库数据
+        *  @param  sqlite: 数据库对象
         *  @return N/A
         */
-        void loadInspectionData(QString &jobPath);
+        void loadLibraryData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  loadItemData
+        *            加载检测框数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void loadItemData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  loadMeasuredObjData
+        *            加载被测对象数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void loadMeasuredObjData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  loadBoardData
+        *            加载基板数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void loadBoardData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  loadInspectionData
+        *            加载检测数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void loadInspectionData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  createInspectionData
+        *            创建检测数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void createInspectionData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  createBoardData
+        *            创建基板数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void createBoardData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  createMeasuredObjData
+        *            创建被测对象数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void createMeasuredObjData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  createLibraryData
+        *            创建库数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void createLibraryData(SSDK::DB::SqliteDB& sqlite);
+
+        /**
+        *  @brief  createItemData
+        *            创建检测框数据
+        *  @param  sqlite: 数据库对象
+        *  @return N/A
+        */
+        void createItemData(SSDK::DB::SqliteDB& sqlite);
 
         /**
         *  @brief inspect
@@ -84,17 +156,16 @@ namespace Job
         */
         void inspect();
 
-
     private:
 
-        //>>>-------------------------------------------------------------------
+        //>>>-----------------------------------------------------------------------
         // member variant
 
         InspectionData m_inspectionData;       //检测程式数据
         InspectionSetting m_inspectionSetting; //设备检测时设置,如(设置相机的配置文件)
         QString m_inspectionSettingPath{""};   //设备检测时设置配置文件的路径
 
-        //<<<-------------------------------------------------------------------
+        //<<<-----------------------------------------------------------------------
     };
 
 }//End of namespace Job
