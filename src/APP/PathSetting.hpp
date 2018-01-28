@@ -33,15 +33,15 @@ namespace APP
         //>>>-------------------------------------------------------------------
         // set & get function
 
-        QString& appSettingPath(){return this->m_appSettingPath;}
+        QString appSettingPath(){return this->m_appSettingPath;}
 
-        QString& exportXmlPath(){return this->m_exportXmlPath;}
+        QString xmlPath(){return this->m_xmlPath;}
 
-        QString& defaultJobFolderPath(){return this->m_defaultJobFolderPath;}
+        QString defaultJobFolderPath(){return this->m_defaultJobFolderPath;}
 
-        QString& inspectionSettingPath(){return this->m_inspectionSettingPath;}
+        QString inspectionSettingPath(){return this->m_inspectionSettingPath;}
 
-        QString& userAccountPath(){return this->m_userAccountPath;}
+        QString userAccountPath(){return this->m_userAccountPath;}
 
         //>>>-------------------------------------------------------------------
         // member function
@@ -64,7 +64,7 @@ namespace APP
         QString m_appSettingPath {""};          // 软件界面的配置文件路径
         QString m_defaultJobFolderPath {""};    // 默认检测程式的路径
         QString m_inspectionSettingPath {""};   // 设备检测信息的配置文件路径
-        QString m_exportXmlPath {""};           // 导出到xml的路径
+        QString m_xmlPath {""};                 // 导出到xml的路径
         QString m_userAccountPath {""};         // 用户注册信息的配置文件路径
 
         //<<<-------------------------------------------------------------------

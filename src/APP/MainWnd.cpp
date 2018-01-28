@@ -39,17 +39,17 @@ void MainWnd::run()
     try
     {
         // 扫描检测程式
-        this->scanJobFolder();
+        this->scanJobFile();
 
         // 加载完程式,检测
-        cout << "Press \"y\" to inspect:";
+        cout << "Input \"y\" to inspect:";
         char inspectValue;
         cin >> inspectValue;
         while ( 'y' == inspectValue || 'Y' == inspectValue )
         {
             this->inspectClick();
             this->writeNGToXml();
-            cout << "Press \"y\" to inspect again:";
+            cout << "Input \"y\" to inspect again:";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> inspectValue;
@@ -59,7 +59,7 @@ void MainWnd::run()
     CATCH_AND_RETHROW_EXCEPTION_WITH_OBJ("Running main window error!");
 }
 
-void MainWnd::scanJobFolder()
+void MainWnd::scanJobFile()
 {
     QString path = APP::g_pAppService->pathSetting().defaultJobFolderPath();
     try
@@ -142,7 +142,7 @@ void MainWnd::writeNGToXml()
 
     xmlFileName = APP::g_pSequence->inspectionManager().inspectionData().board()
             .name() + "_" + DataGenerator::getCurrentTime()+".xml";
-    xmlPath = APP::g_pAppService->pathSetting().exportXmlPath() +
+    xmlPath = APP::g_pAppService->pathSetting().xmlPath() +
             xmlFileName.c_str();
 
     // 将NG的元件写入到xml文件中
@@ -170,7 +170,7 @@ void MainWnd::loadJob(const QString& jobPath)
         }
         else
         {
-            THROW_EXCEPTION("程式加载失败！");
+            THROW_EXCEPTION("Load job file error!");
         }
     }
     catch( const CustomException& ex )
@@ -194,7 +194,7 @@ void MainWnd::createDefaultJob(const QString& jobName)
 
         if( !sqlite.isOpened() )
         {
-            THROW_EXCEPTION("数据库打开失败！");
+            THROW_EXCEPTION("Open sqlite error!");
         }
         g_pSequence->inspectionManager().createInspectionData(sqlite);
         g_pSequence->inspectionManager().createBoardData(sqlite);

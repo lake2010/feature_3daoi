@@ -10,7 +10,7 @@ PathSetting::PathSetting()
     try
     {
         this->m_appSettingPath = "./config/AppSetting.ini";
-        this->m_exportXmlPath = "../data/xml/";
+        this->m_xmlPath = "../data/xml/";
         this->m_defaultJobFolderPath = "../data/job/";
         this->m_inspectionSettingPath = "./config/InspectionSetting.ini";
         this->m_userAccountPath = "./config/UserAccount.ini";
@@ -47,7 +47,7 @@ void PathSetting::load(const QString& path)
 
             //>>>---------------------------------------------------------------
             // step2.2 加载LotInfoPath
-            this->m_exportXmlPath = configFile.value("ExportXmlPath").toString();
+            this->m_xmlPath = configFile.value("ExportXmlPath").toString();
 
             //>>>---------------------------------------------------------------
             // step2.3 加载DefaultJobFolderPath
@@ -68,7 +68,7 @@ void PathSetting::load(const QString& path)
             QSettings configFile(path,QSettings::IniFormat);
 
             configFile.setValue("AppSettingPath",m_appSettingPath );
-            configFile.setValue("ExportXmlPath",m_exportXmlPath);
+            configFile.setValue("ExportXmlPath",m_xmlPath);
             configFile.setValue("DefaultJobFolderPath",m_defaultJobFolderPath);
             configFile.setValue("InspectionSettingPath",m_inspectionSettingPath);
             configFile.setValue("UserAccountPath",m_userAccountPath);

@@ -32,7 +32,7 @@ namespace APP
     };
     /**
      * @brief The LaneMode enum
-     *      机器种类
+     *      轨道类型
      */
     enum class LaneMode
     {
@@ -49,7 +49,9 @@ namespace APP
 
     /**
      *  @brief AppSetting
-     *          AppSetting类是软件应用层的基本属性设置,如设置软件的主题,语言等
+     *          AppSetting类是软件应用层的基本属性设置
+     *      成员变量包括:公司名称,机器类型,软件主题,软件语言,轨道类型
+     *      成员函数包括:load(),加载appSetting中的配置
      *  @author peter
      *  @version 1.00 2018-01-06 peter
      *                note:create it
@@ -68,15 +70,15 @@ namespace APP
         //>>>-------------------------------------------------------------------
         // get & set function
 
-        QString& companyName(){return this->m_companyName;}
+        QString companyName(){return m_companyName;}
 
-        MachineType& machineType(){return this->m_machineType;}
+        MachineType machineType(){return m_machineType;}
 
-        Theme& theme(){return this->m_theme;}
+        Theme theme(){return m_theme;}
 
-        Language& language(){return this->m_language;}
+        Language language(){return m_language;}
 
-        LaneMode& laneMode(){return this->m_laneMode;}
+        LaneMode laneMode(){return m_laneMode;}
 
         //>>>-------------------------------------------------------------------
         // member function
@@ -101,7 +103,7 @@ namespace APP
         MachineType m_machineType {MachineType::AOI};
         Theme m_theme {Theme::BLACK};               // 软件主题
         Language m_language {Language::CN};         // 软件语言
-        LaneMode m_laneMode {LaneMode::SIMULATOR};  // 机器种类
+        LaneMode m_laneMode {LaneMode::SIMULATOR};  // 轨道类型
 
         //<<<-------------------------------------------------------------------
 

@@ -55,7 +55,7 @@ namespace APP
          * @param N/A
          * @return N/A
          */
-        void scanJobFolder();
+        void scanJobFile();
 
         /**
          * @brief inspectClick

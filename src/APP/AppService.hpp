@@ -31,11 +31,11 @@ namespace APP
         //>>>-------------------------------------------------------------------
         // set & get function
 
-        QString& pathSettingPath(){return this->m_pathSettingPath;}
+        QString pathSettingPath(){return m_pathSettingPath;}
 
-        PathSetting& pathSetting(){return this->m_pathSetting;}
+        PathSetting& pathSetting(){return m_pathSetting;}
 
-        AppSetting& appSetting(){return this->m_appSetting;}
+        AppSetting& appSetting(){return m_appSetting;}
 
         //>>>-------------------------------------------------------------------
         // member function
